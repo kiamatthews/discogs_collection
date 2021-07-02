@@ -13,8 +13,8 @@ import requests
 ##
 ##########################
 
-usernames = ['USERNAME1', 'USERNAME2']
-results = '1000'
+usernames = ['USERNAME1', 'USERNAME2'] # Add more user names if necessary
+results = '1000' # number of results per page - our lists are not super large so I didn't need to use pagination.
 key = 'YOUR_KEY'
 secret = 'YOUR_SECRET'
 
@@ -37,6 +37,7 @@ for username in usernames:
             combined_collection.append(collection_dict)
         #log something like "Username collection retrieved."
 
+# SORT DATA BY ARTIST, THEN BY ALBUM TITLE
 sorted_combined_collection = sorted(combined_collection, key=itemgetter('artist', 'title'))
 
 collection_file = open("record_collection.json","w")
